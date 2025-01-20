@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="container">
+    <div class="status-bar">
+        <div id="hunger"></div>
+        <div id="sleep"></div>
+        <div id="pleasure"></div>
+    </div>
+    <div id="character" class="character">
+        <img src="onze-held.png" alt="" width="300" height="300" class="character">
+    </div>
+</div>
+
+<script>
+    var hunger = 10;
+    var sleep = 5;
+    var pleasure = 5;
+    document.getElementById("hunger").innerHTML = hunger;
+    document.getElementById("sleep").innerHTML = sleep;
+    document.getElementById("pleasure").innerHTML = pleasure;
+
+    function stats_decrease() {
+        //Elke seconde gaat deze 'af'
+        //controleer of hunger nog boven de 0 is voordat er weer 1 af wordt gehaald
+        //om te voorkomen dat de honger waarde negatief wordt.
+        if (hunger > 0) {
+            hunger--;
+        }
+        //zie commentaar bij honger
+        if (sleep > 0) {
+            sleep--;
+        }
+        //zie commentaar bij honger
+        if (pleasure > 0) {
+            pleasure--;
+        }
+
+        document.getElementById("hunger").innerText = hunger;
+        document.getElementById("sleep").innerText = sleep;
+        document.getElementById("pleasure").innerText = pleasure;
+
+    }
+
+    setInterval(stats_decrease, 1000);
+</script>
+
+</body>
+</html>

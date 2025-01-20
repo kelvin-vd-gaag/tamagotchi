@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+}
+
+.container{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    /*background-color: purple;*/
+    .status-bar{
+        display: flex;
+        gap: 1em;
+        font-size: 3em;
+    }
+    img{
+        max-width: 600px;
+    }
+}
+
+.character{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
