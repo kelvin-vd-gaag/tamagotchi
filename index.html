@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+<div id="emotion-message" class="emotion-message"></div>
 <div class="container">
     <div class="status-bar">
         <div id="hunger"></div>
@@ -24,29 +25,30 @@
     document.getElementById("hunger").innerHTML = hunger;
     document.getElementById("sleep").innerHTML = sleep;
     document.getElementById("pleasure").innerHTML = pleasure;
-
+    let emotions = ["Ik heb honger","Ik heb slaap", "Ik wil spelen"]
     function stats_decrease() {
-        //Elke seconde gaat deze 'af'
-        //controleer of hunger nog boven de 0 is voordat er weer 1 af wordt gehaald
-        //om te voorkomen dat de honger waarde negatief wordt.
         if (hunger > 0) {
             hunger--;
         }
-        //zie commentaar bij honger
+
         if (sleep > 0) {
             sleep--;
         }
-        //zie commentaar bij honger
         if (pleasure > 0) {
             pleasure--;
         }
-
         document.getElementById("hunger").innerText = hunger;
         document.getElementById("sleep").innerText = sleep;
         document.getElementById("pleasure").innerText = pleasure;
-
     }
 
+    function emotion_checker(){
+        if (hunger < 6){
+            document.getElementById('emotion-message').innerText = emotions[0];
+        }
+    }
+
+    setInterval(emotion_checker, 1000);
     setInterval(stats_decrease, 1000);
 </script>
 
